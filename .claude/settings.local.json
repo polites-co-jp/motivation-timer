@@ -1,0 +1,53 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(cp tmpapp/package.json .)",
+      "Bash(cp tmpapp/tsconfig.json .)",
+      "Bash(cp tmpapp/tsconfig.app.json .)",
+      "Bash(cp tmpapp/tsconfig.node.json .)",
+      "Bash(cp tmpapp/vite.config.ts .)",
+      "Bash(cp tmpapp/index.html .)",
+      "Bash(cp tmpapp/eslint.config.js .)",
+      "Bash(rm -rf tmpapp)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx vite:*)",
+      "Bash(ls -la /d/develop/motivation-timer/src/components/*.css)",
+      "Bash(mv src:*)",
+      "Bash(mv package.json apps/frontend/)",
+      "Bash(mv package-lock.json apps/frontend/)",
+      "Bash(mv index.html apps/frontend/)",
+      "Bash(mv vite.config.ts apps/frontend/)",
+      "Bash(mv tsconfig.json apps/frontend/)",
+      "Bash(mv tsconfig.app.json apps/frontend/)",
+      "Bash(mv tsconfig.node.json apps/frontend/)",
+      "Bash(mv eslint.config.js apps/frontend/)",
+      "Bash(cp -r src apps/frontend/src)",
+      "Bash(cp -r dist apps/frontend/dist)",
+      "Bash(cp package.json apps/frontend/)",
+      "Bash(cp package-lock.json apps/frontend/)",
+      "Bash(cp index.html apps/frontend/)",
+      "Bash(cp vite.config.ts apps/frontend/)",
+      "Bash(cp tsconfig.json apps/frontend/)",
+      "Bash(cp tsconfig.app.json apps/frontend/)",
+      "Bash(cp tsconfig.node.json apps/frontend/)",
+      "Bash(cp eslint.config.js apps/frontend/)",
+      "Bash(rm -rf src dist node_modules)",
+      "Bash(rm -f package.json package-lock.json index.html vite.config.ts tsconfig.json tsconfig.app.json tsconfig.node.json eslint.config.js)",
+      "Bash(docker compose:*)",
+      "Bash(timeout 5 npx tsx src/index.ts)",
+      "Bash(npx tsx -e \":*)",
+      "Bash(npx tsx:*)",
+      "Bash(npm ls:*)",
+      "Bash(node --import tsx -e ':*)",
+      "Bash(npx --yes kill-port 3001)",
+      "Bash(lsof -ti:3001)",
+      "Bash(xargs kill:*)",
+      "Bash(netstat -ano)"
+    ],
+    "additionalDirectories": [
+      "d:\\develop\\motivation-timer\\apps\\backend"
+    ]
+  }
+}

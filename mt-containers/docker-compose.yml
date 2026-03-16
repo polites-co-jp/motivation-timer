@@ -1,0 +1,63 @@
+services:
+  # -----------------------------------------------
+  # PostgreSQL - 常時起動 (開発・本番共通)
+  # -----------------------------------------------
+  db:
+    image: postgres:17-alpine
+    container_name: mt-db
+    environment:
+      POSTGRES_DB: motivation_timer
+      POSTGRES_USER: mt_user
+      POSTGRES_PASSWORD: mt_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - mt-db-data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mt_user -d motivation_timer"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # -----------------------------------------------
+  # Backend (本番用) - profileで制御
+  # -----------------------------------------------
+  backend:
+    build:
+      context: ..
+      dockerfile: mt-containers/backend/Dockerfile
+    container_name: mt-backend
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: motivation_timer
+      DB_USER: mt_user
+      DB_PASSWORD: mt_password
+      PORT: 3001
+      CORS_ORIGIN: http://localhost:3000
+    ports:
+      - "3001:3001"
+    depends_on:
+      db:
+        condition: service_healthy
+    profiles:
+      - production
+
+  # -----------------------------------------------
+  # Frontend (本番用) - profileで制御
+  # -----------------------------------------------
+  frontend:
+    build:
+      context: ..
+      dockerfile: mt-containers/frontend/Dockerfile
+    container_name: mt-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    profiles:
+      - production
+
+volumes:
+  mt-db-data:
