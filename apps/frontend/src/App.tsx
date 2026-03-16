@@ -15,6 +15,7 @@ import { MotivationMessage } from './components/MotivationMessage';
 import { CircularProgress } from './components/CircularProgress';
 import { SessionIndicator } from './components/SessionIndicator';
 import { Controls } from './components/Controls';
+import { Header } from './components/Header';
 import './App.css';
 
 const initialState: AppState = {
@@ -160,6 +161,7 @@ export default function App() {
 
   return (
     <div className="app">
+      <Header />
       <AnimatedBackground phase={state.phase} />
 
       {state.phase === 'idle' && <h1 className="app-title">やる気タイマー</h1>}
