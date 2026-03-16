@@ -1,0 +1,44 @@
+.animated-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-size: 200% 200%;
+  animation: sway 8s ease-in-out infinite;
+  transition: background 1s ease;
+}
+
+.bg-idle {
+  background:
+    radial-gradient(ellipse at 20% 50%, #9b8ec4, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, #7c83bc, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, #a8a0c8, transparent 50%),
+    linear-gradient(135deg, #2d2b3d, #1a1a2e);
+}
+
+.bg-working {
+  background:
+    radial-gradient(ellipse at 20% 50%, #1e90ff, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, #0066cc, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, #40a0ff, transparent 50%),
+    linear-gradient(135deg, #0a1628, #0d2137);
+}
+
+.bg-resting {
+  background:
+    radial-gradient(ellipse at 20% 50%, #2ecc71, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, #1abc9c, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, #27ae60, transparent 50%),
+    linear-gradient(135deg, #0a2818, #0d3722);
+}
+
+@keyframes sway {
+  0%, 100% {
+    background-position: 0% 0%, 100% 0%, 50% 100%;
+  }
+  33% {
+    background-position: 10% 20%, 90% 10%, 40% 90%;
+  }
+  66% {
+    background-position: -5% 10%, 105% -5%, 55% 105%;
+  }
+}
