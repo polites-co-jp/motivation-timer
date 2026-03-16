@@ -1,0 +1,15 @@
+{
+  "name": "motivation-timer",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev:db && npm run dev:apps",
+    "dev:db": "docker compose -f mt-containers/docker-compose.yml up -d db",
+    "dev:apps": "npm run dev:backend & npm run dev:frontend",
+    "dev:backend": "npm run --prefix apps/backend dev",
+    "dev:frontend": "npm run --prefix apps/frontend dev",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:backend": "npm run --prefix apps/backend build",
+    "build:frontend": "npm run --prefix apps/frontend build",
+    "install:all": "npm install --prefix apps/frontend && npm install --prefix apps/backend"
+  }
+}
